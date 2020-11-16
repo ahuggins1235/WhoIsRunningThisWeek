@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Edit";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div style="padding: 15px">
+    This Week 
+
+    <select name="ddlThisWeek" id="ddlThisWeek" >
+
+        @foreach (var person in PeopleManagement.People)
+        {
+            var selected = person.Name == SessionManagement.ThisWeekSession.Person.Name;
+
+            <option value="@person.Name" id="@person.Name" selected="@selected">
+                @person.Name
+            </option>
+         }
+
+
+    </select>
+</div>
+
+<div style="padding: 15px">
+    Next Week
+
+    <select name="ddlNextWeek" id="ddlThisWeek">
+
+        @foreach (var person in PeopleManagement.People)
+        {
+
+            var selected = person.Name == SessionManagement.NextWeekSesssion.Person.Name;
+
+            <option value="@person.Name" id="@person.Name" selected="@selected">
+                @person.Name
+            </option>
+        }
+    </select>
+</div>
+

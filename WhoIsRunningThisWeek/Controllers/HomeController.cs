@@ -1,30 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace WhoIsRunningThisWeek.Controllers
 {
     public class HomeController : Controller
     {
+
+        #region Actions
+
         public ActionResult Index()
         {
-            return View();
+            // pass in this week session 
+            return View(SessionManagement.ThisWeekSession);
         }
 
-        public ActionResult About()
+        public ActionResult Edit()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        #endregion Actions
     }
 }
