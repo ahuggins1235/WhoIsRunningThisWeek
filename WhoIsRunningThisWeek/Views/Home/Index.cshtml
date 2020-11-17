@@ -4,4 +4,9 @@
     ViewBag.Title = "Who Is Running This Week";
 }
 
+@* construc image path based on who is running the next session *@
+@{var path = "/Content/Images/" + Model.ThisWeekSession.Person.ToString() + ".png";} 
+
+<img src="@path" />
+
 <p style="display: inline-block; width: 100%; font-size: 100vw; font-family: Beigly" >@Model.ThisWeekSession.Person</p>
