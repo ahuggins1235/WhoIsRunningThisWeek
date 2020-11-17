@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +17,14 @@ namespace WhoIsRunningThisWeek
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            TaskScheduler.Instance.ScheduleTask(10, 0, 0.00417, 
+                () =>
+                {
+                    Console.WriteLine("Test of timer" + DateTime.Now);
+                }
+                );
+
         }
     }
 }

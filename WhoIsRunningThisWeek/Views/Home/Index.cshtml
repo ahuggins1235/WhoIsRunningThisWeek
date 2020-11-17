@@ -1,8 +1,9 @@
-﻿@model WhoIsRunningThisWeek.SessionModel
+﻿@model WhoIsRunningThisWeek.UpcomingSessionsViewModel
 
 @{
     ViewBag.Title = "Who Is Running This Week";
 }
 <h2>@ViewBag.Title.</h2>
 
-<p>@Model.Person.Name is running this week on @Model.DateOfSession.Date.ToString("D")</p>
+<p>@Model.ThisWeekSession.Person is running this week on @Model.ThisWeekSession.DateOfSession.Date.ToString("D")</p>
+<p>@Model.NextWeekSession.Person is running next week on @Model.NextWeekSession.DateOfSession.Date.ToString("D")</p>

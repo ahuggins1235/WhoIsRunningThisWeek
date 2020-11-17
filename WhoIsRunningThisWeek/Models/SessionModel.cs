@@ -15,7 +15,7 @@ namespace WhoIsRunningThisWeek
         /// <summary>
         /// The person who is currently assigned to run the session
         /// </summary>
-        public PersonModel Person { get; set; }
+        public Person Person { get; set; } 
 
         /// <summary>
         /// True if the session is scheduled for a Saturday. False if it is scheduled for a Sunday

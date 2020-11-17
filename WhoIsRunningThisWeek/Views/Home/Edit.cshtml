@@ -1,41 +1,57 @@
-﻿@{
+﻿@model WhoIsRunningThisWeek.UpcomingSessionsViewModel
+
+
+@{
     ViewBag.Title = "Edit";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<div style="padding: 15px">
-    This Week 
+@using (Html.BeginForm(actionName: "edit", controllerName: "Home", method: FormMethod.Post, htmlAttributes: new { encType = "multipart/form-data" }))
+{
+    <div style="padding: 15px">
+        This Week
 
-    <select name="ddlThisWeek" id="ddlThisWeek" >
+        @Html.EnumDropDownListFor(model => model.ThisWeekSession.Person)
 
-        @foreach (var person in PeopleManagement.People)
-        {
-            var selected = person.Name == SessionManagement.ThisWeekSession.Person.Name;
+        @*<select name="ddlThisWeek" id="ddlThisWeek">
 
-            <option value="@person.Name" id="@person.Name" selected="@selected">
-                @person.Name
-            </option>
-         }
+                @foreach (var person in PeopleManagement.People)
+                {
+                    var selected = person.Name == Model.ThisWeekSession.Person.Name;
+
+                    <option value="@person.Name" id="@person.Name" selected="@selected">
+                        @person.Name
+                    </option>
+                }
 
 
-    </select>
-</div>
+            </select>*@
+    </div>
 
-<div style="padding: 15px">
-    Next Week
+    <div style="padding: 15px">
+        Next Week
 
-    <select name="ddlNextWeek" id="ddlThisWeek">
+        @Html.EnumDropDownListFor(model => model.NextWeekSession.Person)
 
-        @foreach (var person in PeopleManagement.People)
-        {
+        @*<select name="ddlNextWeek" id="ddlThisWeek">
 
-            var selected = person.Name == SessionManagement.NextWeekSesssion.Person.Name;
+                @foreach (var person in PeopleManagement.People)
+                {
 
-            <option value="@person.Name" id="@person.Name" selected="@selected">
-                @person.Name
-            </option>
-        }
-    </select>
-</div>
+                    var selected = person.Name == Model.NextWeekSession.Person.Name;
+
+                    <option value="@person.Name" id="@person.Name" selected="@selected">
+                        @person.Name
+                    </option>
+                }
+            </select>*@
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+}
 

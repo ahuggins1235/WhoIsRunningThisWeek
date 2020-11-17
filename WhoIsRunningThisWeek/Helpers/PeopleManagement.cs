@@ -19,7 +19,19 @@ namespace WhoIsRunningThisWeek
             new PersonModel {Name = "Daina", HowGoodTheyAre = 8},
             new PersonModel {Name = "Matthew", HowGoodTheyAre = 7},
             new PersonModel {Name = "Tom", HowGoodTheyAre = 1},
-            new PersonModel {Name = "Andrew", HowGoodTheyAre = 10}
+            new PersonModel {Name = "Andrew", HowGoodTheyAre = 10},
+            new PersonModel {Name = "Let's just have a lil break for a week", HowGoodTheyAre = 1}
         };
+    }
+
+    public enum Person
+    {
+        Ben,
+        Micheal,
+        Daina,
+        Matt,
+        Tom,
+        Andrew,
+        Break
     }
 }

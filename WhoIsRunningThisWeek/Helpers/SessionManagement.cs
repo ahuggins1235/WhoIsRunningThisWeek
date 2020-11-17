@@ -46,7 +46,8 @@ namespace WhoIsRunningThisWeek
             { 
                 Saturday = true, 
                 DateOfSession = dateOfThisWeekSession,
-                Person = PeopleManagement.People.Find(p => p.Name == "Ben")
+                Person = Person.Ben
+                //PeopleManagement.People.Find(p => p.Name == "Ben")
             };
             
         }
@@ -70,7 +71,7 @@ namespace WhoIsRunningThisWeek
 
 
             // determines if the person running next weeks session should default to should be Ben or Tom
-            PersonModel nextWeekPerson = ThisWeekSession.Person.Name == "Ben" ? PeopleManagement.People.Find(p => p.Name == "Tom") : PeopleManagement.People.Find(p => p.Name == "Ben");
+            var nextWeekPerson = ThisWeekSession.Person == Person.Ben ? Person.Tom : Person.Ben;
 
             // assembles the session model for the next session
             return new SessionModel
