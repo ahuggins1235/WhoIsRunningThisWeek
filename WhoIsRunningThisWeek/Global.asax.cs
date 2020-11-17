@@ -18,12 +18,14 @@ namespace WhoIsRunningThisWeek
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            TaskScheduler.Instance.ScheduleTask(10, 0, 0.00417, 
-                () =>
-                {
-                    Console.WriteLine("Test of timer" + DateTime.Now);
-                }
-                );
+
+
+            //TaskScheduler.Instance.ScheduleTask(10, 0, 0.00417, 
+            //    () =>
+            //    {
+            //        Debug.WriteLine("Test of timer" + DateTime.Now);
+            //    }
+            //    );
 
         }
     }

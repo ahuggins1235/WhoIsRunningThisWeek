@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using System;
+using System.Diagnostics;
 
 namespace WhoIsRunningThisWeek.Controllers
 {
@@ -34,6 +35,21 @@ namespace WhoIsRunningThisWeek.Controllers
             SessionManagement.NextWeekSesssion.Person = (Person) Enum.Parse(typeof(Person), formData["NextWeekSession.Person"].ToString(), true);
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult TimeCheck()
+        {
+            // check if today is the date of this week's session
+            if (DateTime.Now.Date == SessionManagement.ThisWeekSession.DateOfSession.Date)
+            {
+                // set next week's session to this week's session
+                SessionManagement.ThisWeekSession = SessionManagement.NextWeekSesssion;
+
+                // determine create a new session for next week
+                SessionManagement.NextWeekSesssion = SessionManagement.GetNextWeekSession();
+            }
+
+            return View();
         }
 
         #endregion Actions

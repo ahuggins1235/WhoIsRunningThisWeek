@@ -61,7 +61,7 @@ namespace WhoIsRunningThisWeek
         public static SessionModel GetNextWeekSession()
         {
             // stores the date of session next week
-            var dateOfNextSession = ThisWeekSession.DateOfSession.AddDays(2);
+            var dateOfNextSession = ThisWeekSession.DateOfSession.AddDays(3);
 
             // increments through each day of next week until it arrives at a Saturday
             while (dateOfNextSession.DayOfWeek != DayOfWeek.Saturday)
